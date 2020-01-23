@@ -1,0 +1,60 @@
+body
+{
+	height: 39%;
+	width:20%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:rgb(255, 206, 101);
+}
+form 
+{
+    border: 3px solid #f1f1f1;
+}
+
+input[type=text], input[type=password] 
+{
+  padding: 6px 8px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.login {
+	width:68%;
+	padding: 6px 2px;
+}
+
+button 
+{
+  background-color:rgb(202, 131, 38);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover
+{
+    background-color:#a54006;
+}
+
+.cancelbtn 
+{
+  width: auto;
+  padding: 10px 18px;
+  background-color:rgb(202, 131, 38);
+}
+.cancelbtn:hover
+{
+    background-color:#a54006;
+}
+
+.logcontainer 
+{
+  padding: 15px;
+}
+
+span.psw 
+{
+  
+  padding-top: 20px;
+}

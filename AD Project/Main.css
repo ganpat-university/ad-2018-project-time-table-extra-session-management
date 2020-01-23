@@ -1,0 +1,98 @@
+.titlecontainer
+{
+	text-align: center;
+    background-color:rgb(255, 165, 0);
+    width:100%;
+	float: right;
+    height:25%;
+
+}
+.titlecontainer h1
+{
+    display: inline;
+    text-align: center;
+    padding-top: 3px;
+}
+.image
+{
+    width:12%;
+    height:100%;
+    float:left;
+}
+.photocontainer
+{
+	text-align: center;
+    background-color:rgb(163, 38, 33);
+    width:25%;
+    height:85%;
+    float:left;
+}
+.container
+{
+	text-align: center;
+    width:120%;
+    height:1600%;
+	float: left;
+    background-color: aqua;
+
+}
+.commoncontatiner
+{
+	text-align: center;
+    width:25%;
+    height:84%;
+    float:right;
+    background-color: brown;
+}
+.logincointainer
+{
+	text-align: center;
+	background-color:pink;
+    width:80%;
+    height:39%;
+    float:right;
+}
+.upcomingcontatiner
+{
+	text-align: center;
+	background-color:yellow;
+	margin-top:0%;
+    width:80%;
+    height:62%;
+    float:right;
+}
+.navcontainer 
+{
+	text-align: center;
+    width:50%;
+    height:5%;
+	float:left;
+    background-color: white;
+    display:hidden;
+}
+a
+{
+  background-color: rgb(244, 67, 54);
+  padding: 0px 26px 10px 26px;
+  text-align: center;
+  float:left;
+  margin-left:2px;
+  text-decoration: none;
+}
+.navcontainer a
+{
+    text-align:center;
+    color:black;
+    font-size: 19px;
+    
+}
+.navcontainer a:hover
+{
+    background-color:rgb(255, 165, 0);
+    color:black;
+}
+.navcontainer a.active
+{
+  background-color:rgb(255, 165, 0);
+  color:black;
+}
