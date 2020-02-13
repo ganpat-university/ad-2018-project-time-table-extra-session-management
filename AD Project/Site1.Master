@@ -1,0 +1,394 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="AD_Project.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>
+        Event Management
+    </title>
+<link rel="stylesheet" 
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script lang="javascript" type="text/javascript">
+    var modal = document.getElementById("myModal");
+
+    var img = document.getElementById("Image1");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    Image.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    function ValidateRegForm() {
+        var vemail = document.getElementById("<%=email.ClientID%>");
+        var password = document.getElementById('<%=password.ClientID %>').value;
+        var txtPassword = document.getElementById('<%=password.ClientID %>');
+        var score = 0;
+        var filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!filter.test(vemail.value)) {
+            alert('Please provide a valid email address');
+            email.focus;
+            return false;
+        }
+        return true;
+
+        if (password.length < 8) {
+            txtPassword.style.color = "Red";
+            txtPassword.innerHTML = "Too short";
+            return false;
+        }
+
+        for (var s = 0; s < password.length; ++s) {
+            if (password.charCodeAt(s) >= 'a'.charCodeAt(0) && password.charCodeAt(s) <= 'z'.charCodeAt(0)) {
+                score += 1;
+                break;
+            }
+        }
+
+        for (var s = 0; s < password.length; ++s) {
+            if (password.charCodeAt(s) >= 'A'.charCodeAt(0) && password.charCodeAt(s) <= 'Z'.charCodeAt(0)) {
+                score += 1;
+                break;
+            }
+        }
+
+        for (var s = 0; s < password.length; ++s) {
+            if (password.charCodeAt(s) >= '0'.charCodeAt(0) && password.charCodeAt(s) <= '9'.charCodeAt(0)) {
+                score += 1;
+                break;
+            }
+        }
+
+        switch (score) {
+            case 0:
+            case 1:
+                txtPassword.style.color = "Red";
+                txtPassword.innerHTML = "too weak";
+                break;
+            case 2:
+                txtPassword.style.color = "Orange";
+                txtPassword.innerHTML = "average";
+                break;
+            case 3:
+                txtPassword.style.color = "Green";
+                txtPassword.innerHTML = "strong";
+                break;
+        }
+    }
+</script>
+<style>
+.titlecontainer
+{
+	text-align: center;
+    background-color:rgb(255, 165, 0);
+    width:100%;
+	float: right;
+    height:25%;
+
+}
+.titlecontainer h1
+{
+    display: inline;
+    text-align: center;
+    padding-top: 3px;
+}
+.image
+{
+    width:12%;
+    height:100%;
+    float:left;
+}
+.photocontainer
+{
+	text-align: center;
+    background-color:white;
+    background-image:url(gan.jpg);
+    border-image-repeat:space;
+    background-size:5px;
+    width:25%;
+    opacity:0.9;
+    overflow:scroll;
+    height:450px;
+    float:left;
+}
+.rotate {
+    top:0%;
+    bottom:100%;
+    opacity:1;
+    transform-origin:inherit;
+}
+    .container {
+        text-align: center;
+        width: 100%;
+        height: 420px;
+        float: left;
+        background-color: aqua;
+    }
+
+    .commoncontatiner {
+        text-align: center;
+        width: 25%;
+        height: 84%;
+        float: right;
+        background-color: brown;
+    }
+
+    .logincointainer {
+        text-align: center;
+        background-color: white;
+        width: 100%;
+        height: 250px;
+        float: right;
+    }
+.upcomingcontatiner
+{
+	text-align: center;
+	background-color:yellow;
+	margin-top:0%;
+    width:100%;
+    height:200px;
+    float:right;
+}
+.navcontainer {
+	text-align: center;
+    width:50%;
+    height:5%;
+	float:left;
+    background-color: aqua;
+}
+a{
+  background-color: #f44336;
+  padding: 5px 26px 5px 26px;
+  text-align: center;
+  float:left;
+  margin-left:2px;
+  text-decoration: none;
+}
+.navcontainer a
+{
+    text-align:center;
+    color:black;
+    font-size: 19px;
+}
+.navcontainer a:hover
+{
+    background-color:rgb(255, 165, 0);
+    color:black;
+}
+.navcontainer a.active
+{
+  background-color:rgb(255, 165, 0);
+  color:black;
+}
+.input-container {
+    height:30px;
+  display: -ms-flexbox; 
+  display: flex;
+  width: 90%;
+  padding-left:30px;
+  margin-bottom: 10px;
+}
+
+.icon {
+  padding: 5px;
+  background: orange;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 150%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+.btn {
+  background-color: orange;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  margin-left:20px;
+  margin-right:20px;
+  cursor: pointer;
+  width:85%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+.forgotpwd {
+    float: right;
+    background-color:white;
+    color:black;
+}
+.register {
+    margin-top:19px;
+    margin-left:90px;
+    text-align:center;
+    background-color:white;
+    color:black;
+    padding:0px;
+}
+.img {
+    margin-top:20px;
+    margin-right:70px;
+}
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+#Image {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<form id="form1" runat="server">
+    <div>
+        <div class="titlecontainer">
+            <img class="image" src="Ganpat.jpeg">
+            <h1><U><center>Ganpat University</center></U></h1>
+		    <h3><center>Institute Of Computer Science</center></h3>
+       </div>
+    </div>
+
+    <div class="photocontainer">
+        <asp:ImageButton ID="Image1" runat="server" ImageUrl="a.jpg" Width="300px" Height="150px" CssClass="rotate" /><br />
+        <asp:Image ID="Image2" runat="server" ImageUrl="b.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
+        <asp:Image ID="Image3" runat="server" ImageUrl="c.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
+        <asp:Image ID="Image4" runat="server" ImageUrl="d.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
+        <asp:Image ID="Image5" runat="server" ImageUrl="e.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
+        <asp:Image ID="Image6" runat="server" ImageUrl="f.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
+        <asp:Image ID="Image7" runat="server" ImageUrl="g.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
+        <asp:Image ID="Image8" runat="server" ImageUrl="h.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
+        <asp:Image ID="Image9" runat="server" ImageUrl="i.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
+        <asp:Image ID="Image10" runat="server" ImageUrl="j.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
+        <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <asp:Image ID="img01" runat="server" CssClass="modal-content"/>
+        <div id="caption"></div>
+        </div>
+    </div>
+
+    <div class="navcontainer">
+        <a href="home.html" class="active">Home</a>
+        <a href="about_us.html" >About Us</a>
+        <a href="contact_us.html">Contact Us</a>
+        <a href="feedback.html"> Feedback </a>
+        <a href="event_organize.html">Organizi Event</a>
+
+    <div class="container">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                content
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    </div>
+
+    <div class="commoncontatiner" >
+    <div class="logincointainer">
+        <center><h4>Member Login</h4></center>
+
+    <div class="input-container">
+        <i class="fa fa-envelope icon"></i>
+        <asp:TextBox ID="email" TextMode="Email" placeholder="Email" CssClass="input-field" runat="server"></asp:TextBox>
+
+    </div>
+  
+    <div class="input-container">
+        <i class="fa fa-key icon"></i>
+        <asp:TextBox ID="password" TextMode="Password" placeholder="Password" CssClass="input-field" runat="server"></asp:TextBox>
+
+    </div>
+        <asp:Button ID="Button1" runat="server" Text="Login" CssClass="btn" OnClick="Button1_Click" OnClientClick="return ValidateRegForm();" />
+        <a class="forgotpwd" href="forgotpwd.html">Forgot Password?</a><br />
+        <b><a class="register" href="sign_up.aspx">Create your Account</a></b>
+        <asp:Image ID="img" runat="server" ImageUrl="~/arrow.png" CssClass="img"/>
+
+    </div>
+        
+
+    <div class="upcomingcontatiner">
+        Upcoming Events
+    </div>
+    </div>   
+</form>
+</body>
+</html>
