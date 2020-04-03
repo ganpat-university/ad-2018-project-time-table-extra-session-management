@@ -1,5 +1,4 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="AD_Project.Site1" %>
-
 <!DOCTYPE html>
 
 <html>
@@ -27,6 +26,7 @@
         modal.style.display = "none";
     }
     function ValidateRegForm() {
+
         var vemail = document.getElementById("<%=email.ClientID%>");
         var password = document.getElementById('<%=password.ClientID %>').value;
         var txtPassword = document.getElementById('<%=password.ClientID %>');
@@ -35,6 +35,12 @@
         if (!filter.test(vemail.value)) {
             alert('Please provide a valid email address');
             email.focus;
+            return false;
+        }
+        return true;
+        if (!filter.test(vemail.value) && !filter.test(txtPassword.value)) {
+            alert('UserName or Password Is Invalid');
+            password.focus;
             return false;
         }
         return true;
@@ -84,10 +90,12 @@
     }
 </script>
 <style>
+.newcss {
+    width:150%;
+}
 .titlecontainer
 {
 	text-align: center;
-    background-color:rgb(255, 165, 0);
     width:100%;
 	float: right;
     height:25%;
@@ -101,35 +109,25 @@
 }
 .image
 {
-    width:12%;
+    width:25%;
     height:100%;
     float:left;
 }
 .photocontainer
 {
-	text-align: center;
-    background-color:white;
-    background-image:url(gan.jpg);
-    border-image-repeat:space;
-    background-size:5px;
+    background:white;
     width:25%;
     opacity:0.9;
-    overflow:scroll;
-    height:450px;
+    height:400px;
     float:left;
 }
-.rotate {
-    top:0%;
-    bottom:100%;
-    opacity:1;
-    transform-origin:inherit;
-}
     .container {
+        overflow:scroll;
         text-align: center;
         width: 100%;
-        height: 420px;
+        height: 550px;
         float: left;
-        background-color: aqua;
+        background-color:rgb(255, 206, 101);
     }
 
     .commoncontatiner {
@@ -144,16 +142,16 @@
         text-align: center;
         background-color: white;
         width: 100%;
-        height: 250px;
+        height: 260px;
         float: right;
     }
 .upcomingcontatiner
 {
 	text-align: center;
-	background-color:yellow;
+	background-color:white;
 	margin-top:0%;
     width:100%;
-    height:200px;
+    height:230px;
     float:right;
 }
 .navcontainer {
@@ -161,31 +159,77 @@
     width:50%;
     height:5%;
 	float:left;
-    background-color: aqua;
+    background-color: white;
+}
+.navigation {
+    border-right-color:white;
+	text-align: center;
+    width:100%;
+    padding:10px 0px 10px 15px;
+    margin-bottom:1%;
+	float:left;
+    background-color: rgb(163, 38, 33);
+}
+#search {
+    float:right;
+    background-color:rgb(163, 38, 33);
+    text-align: center;
+    width:13%;
+    font-size:15px;
+    color:rgb(255, 165, 40);
+    padding-top:5px;
+    margin-right:8%;
+    text-decoration: none;
 }
 a{
-  background-color: #f44336;
-  padding: 5px 26px 5px 26px;
+  background-color:rgb(163, 38, 33);
+  padding: 5px 26px 5px 30px;
   text-align: center;
   float:left;
   margin-left:2px;
+  border-right-color:white;
   text-decoration: none;
 }
-.navcontainer a
-{
+.organize {
+    background-color:rgb(163, 38, 33);
+  padding: 5px 26px 5px 30px;
+  text-align: center;
+  float:left;
+  margin-left:2px;
+  border-right-color:white;
+  text-decoration: none;
+  border:none;
+  border-right-color:white;
     text-align:center;
-    color:black;
+    color:white;
     font-size: 19px;
 }
-.navcontainer a:hover
-{
-    background-color:rgb(255, 165, 0);
-    color:black;
+.organize:hover {
+    color:white;
+    text-decoration:underline;
 }
-.navcontainer a.active
+.organize.active {
+    background-color:rgb(163, 38, 33);
+  color:white;
+  border-right-color:white;
+}
+.navigation a
 {
-  background-color:rgb(255, 165, 0);
-  color:black;
+    border-right-color:white;
+    text-align:center;
+    color:white;
+    font-size: 19px;
+}
+.navigation a:hover
+{
+    color:white;
+    text-decoration:underline;
+}
+.navigation a.active
+{
+  background-color:rgb(163, 38, 33);
+  color:white;
+  border-right-color:white;
 }
 .input-container {
     height:30px;
@@ -198,7 +242,7 @@ a{
 
 .icon {
   padding: 5px;
-  background: orange;
+  background: rgb(163, 38, 33);
   color: white;
   min-width: 50px;
   text-align: center;
@@ -214,57 +258,61 @@ a{
   border: 2px solid dodgerblue;
 }
 
-.btn {
-  background-color: orange;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  margin-left:20px;
-  margin-right:20px;
-  cursor: pointer;
-  width:85%;
-  opacity: 0.9;
-}
+    .btn {
+        background-color: rgb(163, 38, 33);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        margin-left: 20px;
+        margin-right: 5px;
+        cursor: pointer;
+        width: 85%;
+        opacity: 0.9;
+    }
 
-.btn:hover {
-  opacity: 1;
-}
-.forgotpwd {
-    float: right;
-    background-color:white;
-    color:black;
-}
-.register {
-    margin-top:19px;
-    margin-left:90px;
-    text-align:center;
-    background-color:white;
-    color:black;
-    padding:0px;
-}
-.img {
-    margin-top:20px;
-    margin-right:70px;
-}
-.close:hover,
-.close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
+        .btn:hover {
+            opacity: 1;
+        }
+
+    .forgotpwd {
+        float: right;
+        background-color: white;
+        color: black;
+    }
+    .register {
+        margin-top: 5px;
+        margin-left: 90px;
+        text-align: center;
+        background-color: white;
+        color: black;
+        padding: 0px;
+    }
+
+    .img {
+        margin-top: 7px;
+        margin-right: 100px;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    }
 .modal-content {
   margin: auto;
   display: block;
@@ -281,16 +329,18 @@ a{
   padding: 10px 0;
   height: 150px;
 }
-.modal-content, #caption {  
-  -webkit-animation-name: zoom;
-  -webkit-animation-duration: 0.6s;
-  animation-name: zoom;
-  animation-duration: 0.6s;
-}
+    .modal-content, #caption {
+        -webkit-animation-name: zoom;
+        -webkit-animation-duration: 0.6s;
+        animation-name: zoom;
+        animation-duration: 0.6s;
+    }
 
 @-webkit-keyframes zoom {
-  from {-webkit-transform:scale(0)} 
-  to {-webkit-transform:scale(1)}
+  from {-webkit-transform:scale(0)}
+    to {
+        -webkit-transform: scale(1)
+    }
 }
 
 @keyframes zoom {
@@ -306,55 +356,95 @@ a{
   font-weight: bold;
   transition: 0.3s;
 }
-#Image {
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
+    #Image {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .modal-content {
+            width: 100%;
+        }
+    }
+
+    .grid {
+        align-content: center;
+        margin-left: 5%;
+    }
+
+    .rotater {
+        background-color: white;
+    }
+.logout {
+    background-color:rgb(163, 38, 33);
+    color:rgb(255, 165, 40);
+    border-color:none;
+    padding-left:20px;
+    border:none;
 }
-@media only screen and (max-width: 700px){
-  .modal-content {
-    width: 100%;
-  }
+.logout:hover {
+    text-decoration:underline;
 }
 </style>
 </head>
-<body>
+<body style="background-color: white">
 <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div>
+        <div class="navigation">
+            <a href="home.aspx" class="active">Home</a>
+            <a href="about_us.aspx" >About Us</a>
+            <a href="Contact_us.aspx">Contact Us</a>
+            <a href="WebForm1.aspx"> Feedback </a>
+            <asp:Button ID="event_organize" Text="Organize Event" runat="server" CssClass="organize" OnClick="event_organize_Click"/>
+            <asp:Button ID="approve_event" Text="Event Approval" runat="server" CssClass="organize" OnClick="approve_event_Click"/>
+
+        <div id="search">
+            <table style="background-color:rgb(163, 38, 33)">
+                <tr>
+                    <td id="title_user" runat="server" visible="true"><%Response.Write(Session["username"]); %></td>
+                    <td id="logout" runat="server"><asp:Button ID="button" Text="Logout" runat="server" CssClass="logout" OnClick="button_Click"/></td>
+                </tr>
+            </table>
+        </div>
+            
+     </div>
         <div class="titlecontainer">
-            <img class="image" src="Ganpat.jpeg">
-            <h1><U><center>Ganpat University</center></U></h1>
-		    <h3><center>Institute Of Computer Science</center></h3>
+            <img class="image" src="logo.png">     
        </div>
     </div>
 
-    <div class="photocontainer">
-        <asp:ImageButton ID="Image1" runat="server" ImageUrl="a.jpg" Width="300px" Height="150px" CssClass="rotate" /><br />
-        <asp:Image ID="Image2" runat="server" ImageUrl="b.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
-        <asp:Image ID="Image3" runat="server" ImageUrl="c.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
-        <asp:Image ID="Image4" runat="server" ImageUrl="d.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
-        <asp:Image ID="Image5" runat="server" ImageUrl="e.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
-        <asp:Image ID="Image6" runat="server" ImageUrl="f.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
-        <asp:Image ID="Image7" runat="server" ImageUrl="g.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
-        <asp:Image ID="Image8" runat="server" ImageUrl="h.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
-        <asp:Image ID="Image9" runat="server" ImageUrl="i.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
-        <asp:Image ID="Image10" runat="server" ImageUrl="j.jpg" Width="300px" Height="150px" CssClass="rotate"/><br />
-        <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <asp:Image ID="img01" runat="server" CssClass="modal-content"/>
-        <div id="caption"></div>
-        </div>
+        <a class="forgotpwd" href="forgotpwd.html">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [login]"></asp:SqlDataSource>
+        </a>
+
+    <div class="photocontainer" style="background-color:white">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <asp:AdRotator ID="AdRotator1" CssClass="rotater" runat="server" AdvertisementFile="~/slider1.xml"/>
+                <asp:Timer ID="Timer1" runat="server" Interval="3000"/>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+            <ContentTemplate>
+                <asp:AdRotator ID="AdRotator2" CssClass="rotater" runat="server" AdvertisementFile="~/slider2.xml"/>
+                <asp:Timer ID="Timer2" runat="server" Interval="3000"/>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+            <ContentTemplate>
+                <asp:AdRotator ID="AdRotator3" CssClass="rotater" runat="server" AdvertisementFile="~/slider3.xml"/>
+                <asp:Timer ID="Timer3" runat="server" Interval="3000"/>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
 
     <div class="navcontainer">
-        <a href="home.html" class="active">Home</a>
-        <a href="about_us.html" >About Us</a>
-        <a href="contact_us.html">Contact Us</a>
-        <a href="feedback.html"> Feedback </a>
-        <a href="event_organize.html">Organizi Event</a>
-
-    <div class="container">
-        <div>
+       
+    <div class="container" runat="server" id="contentcontainer">
+        <br />
+        <div class="new_css" runat="server" id="newcss">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 content
             </asp:ContentPlaceHolder>
@@ -362,10 +452,10 @@ a{
     </div>
     </div>
 
-    <div class="commoncontatiner" >
+    <div class="commoncontatiner" runat="server" visible="true" id="commoncolumn">
     <div class="logincointainer">
-        <center><h4>Member Login</h4></center>
-
+        <center><h2>Member Login</h2></center>
+        <asp:Label ID="error" runat="server"></asp:Label>
     <div class="input-container">
         <i class="fa fa-envelope icon"></i>
         <asp:TextBox ID="email" TextMode="Email" placeholder="Email" CssClass="input-field" runat="server"></asp:TextBox>
@@ -377,6 +467,7 @@ a{
         <asp:TextBox ID="password" TextMode="Password" placeholder="Password" CssClass="input-field" runat="server"></asp:TextBox>
 
     </div>
+
         <asp:Button ID="Button1" runat="server" Text="Login" CssClass="btn" OnClick="Button1_Click" OnClientClick="return ValidateRegForm();" />
         <a class="forgotpwd" href="forgotpwd.html">Forgot Password?</a><br />
         <b><a class="register" href="sign_up.aspx">Create your Account</a></b>
@@ -386,8 +477,21 @@ a{
         
 
     <div class="upcomingcontatiner">
-        Upcoming Events
+        <h2>Upcoming Events</h2>
+        <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" CssClass="grid" Width="334px" OnRowDataBound="GridView1_RowDataBound" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <AlternatingRowStyle BackColor="White" />
+            <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+            <SortedAscendingCellStyle BackColor="#FDF5AC" />
+            <SortedAscendingHeaderStyle BackColor="#4D0000" />
+            <SortedDescendingCellStyle BackColor="#FCF6C0" />
+            <SortedDescendingHeaderStyle BackColor="#820000" />
+        </asp:GridView>
     </div>
+
     </div>   
 </form>
 </body>

@@ -5,6 +5,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+<script>
+    function Myfunction() {
+        var uname = document.getElementById('name');
+        var Password = document.getElementById('password');
+        if (uname.value == "" || Password.value == "") {
+            alert("Email or password should not be blank");
+        }
+        else {
+            prompt("You have successfully Login");
+        }
+    }
+</script>
 <style>
 body 
 {
@@ -92,7 +104,7 @@ button
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
-    
+    <span id="message" runat="server"></span>
     <label for="email"><b>Full Name</b></label>
     <asp:TextBox ID="name" runat="server" placeholder="Enter Full Name"></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter your Name" ControlToValidate="name"></asp:RequiredFieldValidator><br />
@@ -102,11 +114,11 @@ button
     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter your Email" ControlToValidate="email"></asp:RequiredFieldValidator><br />
 
     <label for="psw"><b>Password</b></label>
-    <asp:TextBox ID="password" runat="server" placeholder="Enter Password" ></asp:TextBox>
+    <asp:TextBox ID="password" TextMode="Password" runat="server" placeholder="Enter Password" ></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please fill your password" ControlToValidate="password"></asp:RequiredFieldValidator><br />    
 
     <label for="psw-repeat"><b>Confirm Password</b></label>
-    <asp:TextBox ID="password1" runat="server" placeholder="Confirm your Password" ></asp:TextBox>
+    <asp:TextBox ID="password1" TextMode="Password" runat="server" placeholder="Confirm your Password" ></asp:TextBox>
     <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Your Password Does not Match" ControlToCompare="password" ControlToValidate="password1"></asp:CompareValidator><br />
     
     <label>
@@ -116,7 +128,7 @@ button
     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
     <div class="clearfix">
-        <asp:Button ID="submit" runat="server" Text="Submit" CssClass="signupbtn" Height="51px" Width="178px" OnClick="submit_Click"/>
+        <asp:Button ID="submit" runat="server" Text="Submit" CssClass="signupbtn" Height="51px" Width="178px" OnClick="submit_Click" OnClientClick="return Myfunction();"/>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [login]"></asp:SqlDataSource>
         <asp:Button ID="cancel" runat="server" Text="Clear" CssClass="cancelbtn"/>
     </div>

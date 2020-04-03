@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+	<Ad>
+		<ImageUrl>cc.jpg</ImageUrl>
+	</Ad>
+	<Ad>
+		<ImageUrl>dd.jpg</ImageUrl>
+	</Ad>
+	<Ad>
+		<ImageUrl>ee.jpg</ImageUrl>
+	</Ad>
+	<Ad>
+		<ImageUrl>ff.jpg</ImageUrl>
+	</Ad>
+	<Ad>
+		<ImageUrl>gg.jpg</ImageUrl>
+	</Ad>
+	<Ad>
+		<ImageUrl>hh.jpg</ImageUrl>
+	</Ad>
+	<Ad>
+		<ImageUrl>ii.jpg</ImageUrl>
+	</Ad>
+	<Ad>
+		<ImageUrl>jj.jpg</ImageUrl>
+	</Ad>
+	<Ad>
+		<ImageUrl>kk.jpg</ImageUrl>
+	</Ad>
+	<Ad>
+		<ImageUrl>ll.jpg</ImageUrl>
+	</Ad>
+	<Ad>
+		<ImageUrl>aa.jpg</ImageUrl>
+	</Ad>
+	<Ad>
+		<ImageUrl>bb.jpg</ImageUrl>
+	</Ad>
+</Advertisements>

@@ -14,7 +14,6 @@ namespace AD_Project
         {
 
         }
-
         protected void submit_Click(object sender, EventArgs e)
         {
             SqlConnection sqlConnection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True; Connect Timeout = 30");
@@ -23,7 +22,7 @@ namespace AD_Project
             SqlCommand sqlCommand = new SqlCommand("insert into login (Email,Password) values ('" + email.Text + "','" + password.Text + "')", sqlConnection);
             sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
-            Response.Redirect("WebForm1.aspx");
+            Response.Redirect("home.aspx");
         }
     }
 }
